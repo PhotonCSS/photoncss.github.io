@@ -1,0 +1,15 @@
+#!/bin/bash
+
+rm -rf site
+mkdocs build
+cd site
+git init
+git add .
+git commit -m "Build docs"
+git remote add origin https://github.com/PhotonCSS/photoncss.github.io.git
+git branch -M ghpages
+git push -u origin ghpages
+cd ..
+git add .
+git commit -m "Build docs"
+git push -u origin master
